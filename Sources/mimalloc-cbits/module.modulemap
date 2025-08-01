@@ -1,0 +1,4 @@
+module mimalloc {
+  header "mimalloc-cbits.h"
+  export *
+}

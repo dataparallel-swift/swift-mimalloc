@@ -1,0 +1,3 @@
+[submodule "Sources/mimalloc-cbits/mimalloc"]
+	path = Sources/mimalloc-cbits/mimalloc
+	url = git@gitlab.com:PassiveLogic/compiler/mimalloc.git
