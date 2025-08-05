@@ -1,4 +1,6 @@
 module mimalloc {
   header "mimalloc-cbits.h"
+  requires c11
+  requires cplusplus17
   export *
 }
