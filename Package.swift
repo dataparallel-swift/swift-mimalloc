@@ -18,7 +18,9 @@ let package = Package(
             sources: ["mimalloc-cbits.c"],
             publicHeadersPath: ".",
             cSettings: [
-                .headerSearchPath("mimalloc/include")
+                .headerSearchPath("mimalloc/include"),
+                .define("NDEBUG", .when(configuration: .release)),
+                .define("MI_BUILD_RELEASE", .when(configuration: .release)),
             ],
         )
     ]
