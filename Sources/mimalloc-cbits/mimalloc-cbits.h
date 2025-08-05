@@ -6,6 +6,6 @@
 #ifndef __MIMALLOC_CBITS_H__
 #define __MIMALLOC_CBITS_H__
 
-#include "mimalloc.h"
+#include "mimalloc/include/mimalloc.h"
 
 #endif // __MIMALLOC_CBITS_H__
