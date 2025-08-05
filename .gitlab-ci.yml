@@ -1,0 +1,22 @@
+include:
+  - component: gitlab.com/PassiveLogic/ci/commitlint@4
+  - component: gitlab.com/PassiveLogic/ci/swiftlint@4
+  - component: gitlab.com/PassiveLogic/ci/swiftformat@4
+  - component: gitlab.com/PassiveLogic/ci/swift-import-analyzer@4
+  - component: gitlab.com/PassiveLogic/ci/swift-build@4
+    inputs:
+      job-prefix: "amd64-"
+      runner-tags:
+        - passivelogic-linux-small-amd64
+      additional-setup:
+        - git submodule sync
+        - git submodule update --init
+  - component: gitlab.com/PassiveLogic/ci/swift-build@4
+    inputs:
+      job-prefix: "arm64-"
+      runner-tags:
+        - passivelogic-linux-small-arm64
+      additional-setup:
+        - git submodule sync
+        - git submodule update --init
+
