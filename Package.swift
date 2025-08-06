@@ -28,6 +28,7 @@ let package = Package(
                 .unsafeFlags(["-fno-builtin-malloc"]),
             ],
         )
-    ]
+    ],
+    cLanguageStandard: .c11,
 )
 
