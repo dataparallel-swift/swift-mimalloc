@@ -21,6 +21,11 @@ let package = Package(
                 .headerSearchPath("mimalloc/include"),
                 .define("NDEBUG", .when(configuration: .release)),
                 .define("MI_BUILD_RELEASE", .when(configuration: .release)),
+                .define("MI_MALLOC_OVERRIDE"),
+                .define("MI_OSX_ZONE", to: "1", .when(platforms: [.macOS])),
+                .define("MI_OSX_INTERPOSE", to: "1", .when(platforms: [.macOS])),
+                .define("MI_WIN_NOREDIRECT", to: "1", .when(platforms: [.windows])),
+                .unsafeFlags(["-fno-builtin-malloc"]),
             ],
         )
     ]
