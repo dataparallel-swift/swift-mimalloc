@@ -18,7 +18,7 @@ let package = Package(
         .library(name: "swift-mimalloc", targets: ["swift-mimalloc"]),
     ],
     dependencies: [
-        .package(url: "git@gitlab.com:PassiveLogic/compiler/swift-cuda.git", revision: "0.2"),
+        .package(url: "git@gitlab.com:PassiveLogic/compiler/swift-cuda.git", from: "0.2.0"),
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
