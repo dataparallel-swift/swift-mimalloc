@@ -44,7 +44,7 @@ let package = Package(
                 // .unsafeFlags(["-fno-builtin-malloc"]),
                 .unsafeFlags(archFlags, .when(configuration: .release)),
             ],
-        )
+        ),
     ],
     cLanguageStandard: .c11,
 )

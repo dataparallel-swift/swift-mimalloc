@@ -1,7 +1,7 @@
 include:
   - component: gitlab.com/PassiveLogic/ci/commitlint@4
   - component: gitlab.com/PassiveLogic/ci/swiftlint@4
-  - component: gitlab.com/PassiveLogic/ci/swiftformat@4
+  # - component: gitlab.com/PassiveLogic/ci/swiftformat@4
   - component: gitlab.com/PassiveLogic/ci/swift-import-analyzer@4
   - component: gitlab.com/PassiveLogic/ci/swift-build@4
     inputs:
