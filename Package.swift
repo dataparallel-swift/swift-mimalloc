@@ -15,29 +15,36 @@ let package = Package(
     name: "swift-mimalloc",
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
-        .library( name: "swift-mimalloc", targets: ["swift-mimalloc"]),
+        .library(name: "swift-mimalloc", targets: ["swift-mimalloc"]),
+    ],
+    dependencies: [
+        .package(url: "git@gitlab.com:PassiveLogic/compiler/swift-cuda.git", from: "0.2.0"),
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
             name: "swift-mimalloc",
+            dependencies: [
+                .product(name: "CUDA", package: "swift-cuda"),
+            ],
             path: "Sources/mimalloc-cbits",
             sources: ["mimalloc-cbits.c"],
             publicHeadersPath: ".",
             cSettings: [
                 .headerSearchPath("mimalloc/include"),
+                .define("MI_USE_CUDA"),
                 .define("NDEBUG", .when(configuration: .release)),
                 .define("MI_BUILD_RELEASE", .when(configuration: .release)),
-                .define("MI_MALLOC_OVERRIDE"),
-                .define("MI_OSX_ZONE", to: "1", .when(platforms: [.macOS])),
-                .define("MI_OSX_INTERPOSE", to: "1", .when(platforms: [.macOS])),
-                .define("MI_WIN_NOREDIRECT", to: "1", .when(platforms: [.windows])),
                 .define("MI_OPT_SIMD", to: "1", .when(configuration: .release)),
-                .unsafeFlags(["-fno-builtin-malloc"]),
+                // .define("MI_MALLOC_OVERRIDE"),
+                // .define("MI_OSX_ZONE", to: "1", .when(platforms: [.macOS])),
+                // .define("MI_OSX_INTERPOSE", to: "1", .when(platforms: [.macOS])),
+                // .define("MI_WIN_NOREDIRECT", to: "1", .when(platforms: [.windows])),
+                // .unsafeFlags(["-fno-builtin-malloc"]),
                 .unsafeFlags(archFlags, .when(configuration: .release)),
             ],
-        )
+        ),
     ],
     cLanguageStandard: .c11,
 )
