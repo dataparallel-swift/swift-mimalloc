@@ -11,6 +11,12 @@ include:
       additional-setup:
         - git submodule sync
         - git submodule update --init
+        # Install CUDA
+        - apt-get -y install wget
+        - wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/cuda-keyring_1.1-1_all.deb
+        - dpkg -i cuda-keyring_1.1-1_all.deb
+        - apt-get update
+        - apt-get -y install cuda-nvcc-12-6
   - component: gitlab.com/PassiveLogic/ci/swift-build@4
     inputs:
       job-prefix: "arm64-"
@@ -19,4 +25,10 @@ include:
       additional-setup:
         - git submodule sync
         - git submodule update --init
+        # Install CUDA
+        - apt-get -y install wget
+        - wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/sbsa/cuda-keyring_1.1-1_all.deb
+        - dpkg -i cuda-keyring_1.1-1_all.deb
+        - apt-get update
+        - apt-get -y install cuda-nvcc-12-6
 
