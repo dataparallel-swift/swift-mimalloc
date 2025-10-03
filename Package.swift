@@ -3,6 +3,8 @@
 
 import PackageDescription
 
+// swiftformat:disable consecutiveSpaces, spaceInsideBrackets
+
 #if arch(arm64)
 let archFlags = [ "-march=armv8.1-a" ]          // fast atomics (since 2016)
 #elseif arch(x86_64)
@@ -56,9 +58,8 @@ let package = Package(
                 .define("MI_OSX_INTERPOSE", to: "1", .when(platforms: [.macOS], traits: ["Interpose"])),
                 .define("MI_WIN_NOREDIRECT", to: "1", .when(platforms: [.windows], traits: ["Interpose"])),
                 .unsafeFlags(["-fno-builtin-malloc"], .when(traits: ["Interpose"])),
-            ],
+            ]
         ),
     ],
-    cLanguageStandard: .c11,
+    cLanguageStandard: .c11
 )
-
