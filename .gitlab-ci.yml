@@ -38,7 +38,6 @@ include:
         - apt-get -y install cuda-nvcc-12-6
       package-traits:
         - CUDA
-      warnings-as-errors: false # https://github.com/swiftlang/swift-package-manager/issues/9192
 
   - component: gitlab.com/PassiveLogic/ci/swift-build@feat/traits
     inputs:
@@ -56,5 +55,4 @@ include:
         - apt-get -y install cuda-nvcc-12-6
       package-traits:
         - CUDA
-      warnings-as-errors: false # https://github.com/swiftlang/swift-package-manager/issues/9192
 
