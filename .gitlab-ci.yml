@@ -56,6 +56,9 @@ include:
       package-traits:
         - CUDA
 
+  # Test stage
+  - component: gitlab.com/PassiveLogic/ci/swift-api-check@4
+
   - component: gitlab.com/PassiveLogic/ci/swift-dependabot@4
     inputs:
       token: ${SWIFT_DEPENDABOT_TOKEN}
