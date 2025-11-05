@@ -59,6 +59,13 @@ include:
   # Test stage
   - component: gitlab.com/PassiveLogic/ci/swift-api-check@4
 
+  - component: gitlab.com/PassiveLogic/ci/swift-docs@4
+    inputs:
+      product-names:
+        - swift-mimalloc
+      runner-tags:
+        - passivelogic-linux-small-amd64
+
   - component: gitlab.com/PassiveLogic/ci/swift-dependabot@4
     inputs:
       token: ${SWIFT_DEPENDABOT_TOKEN}
