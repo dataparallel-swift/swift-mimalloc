@@ -1,0 +1,15 @@
+{
+  "originHash" : "ee9440f5bfad06aae7aef17c4afbcb92c06357ef744803dadd4df78dfb12824e",
+  "pins" : [
+    {
+      "identity" : "swift-cuda",
+      "kind" : "remoteSourceControl",
+      "location" : "git@gitlab.com:PassiveLogic/compiler/swift-cuda.git",
+      "state" : {
+        "revision" : "6dffd354da1d7f4c1d30ee92a8e52de5d8204e92",
+        "version" : "0.3.0"
+      }
+    }
+  ],
+  "version" : 3
+}
