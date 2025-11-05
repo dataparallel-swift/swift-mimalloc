@@ -56,3 +56,8 @@ include:
       package-traits:
         - CUDA
 
+  - component: gitlab.com/PassiveLogic/ci/swift-dependabot@4
+    inputs:
+      token: ${SWIFT_DEPENDABOT_TOKEN}
+      token-email: ${SWIFT_DEPENDABOT_EMAIL}
+      assignee-username: trevor@passivelogic.com
