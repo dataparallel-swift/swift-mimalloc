@@ -1,9 +1,25 @@
-include:
-  - component: gitlab.com/PassiveLogic/ci/commitlint@4
-  - component: gitlab.com/PassiveLogic/ci/swiftlint@4
-  - component: gitlab.com/PassiveLogic/ci/swiftformat@4
-  - component: gitlab.com/PassiveLogic/ci/swift-import-analyzer@4
+stages:
+  - lint
+  - build
+  - test
+  - deploy
 
+include:
+  # Lint stage
+  - component: gitlab.com/PassiveLogic/ci/commitlint@4
+    inputs:
+      job-stage: lint
+  - component: gitlab.com/PassiveLogic/ci/swiftlint@4
+    inputs:
+      job-stage: lint
+  - component: gitlab.com/PassiveLogic/ci/swiftformat@4
+    inputs:
+      job-stage: lint
+  - component: gitlab.com/PassiveLogic/ci/swift-import-analyzer@4
+    inputs:
+      job-stage: lint
+
+  # Build stage
   - component: gitlab.com/PassiveLogic/ci/swift-build@4
     inputs:
       job-prefix: "amd64-"
@@ -59,6 +75,7 @@ include:
   # Test stage
   - component: gitlab.com/PassiveLogic/ci/swift-api-check@4
 
+  # Deploy stage
   - component: gitlab.com/PassiveLogic/ci/swift-docs@4
     inputs:
       product-names:
