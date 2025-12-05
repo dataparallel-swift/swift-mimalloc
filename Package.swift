@@ -29,7 +29,7 @@ let package = Package(
         .default(enabledTraits: ["Interpose"]),
     ],
     dependencies: [
-        .package(url: "git@gitlab.com:PassiveLogic/compiler/swift-cuda.git", from: "0.2.0"),
+        .package(url: "https://github.com/dataparallel-swift/swift-cuda.git", from: "1.0.0"),
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
