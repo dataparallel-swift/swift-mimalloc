@@ -1,13 +1,13 @@
 {
-  "originHash" : "ee9440f5bfad06aae7aef17c4afbcb92c06357ef744803dadd4df78dfb12824e",
+  "originHash" : "20bbf975758a486a46b3297562eea7718cedbefa18c22320218c51cce4175d09",
   "pins" : [
     {
       "identity" : "swift-cuda",
       "kind" : "remoteSourceControl",
-      "location" : "git@gitlab.com:PassiveLogic/compiler/swift-cuda.git",
+      "location" : "https://github.com/dataparallel-swift/swift-cuda.git",
       "state" : {
-        "revision" : "6dffd354da1d7f4c1d30ee92a8e52de5d8204e92",
-        "version" : "0.3.0"
+        "revision" : "8769337807ac47b246cd71c087218a570b445de4",
+        "version" : "1.0.0"
       }
     }
   ],
