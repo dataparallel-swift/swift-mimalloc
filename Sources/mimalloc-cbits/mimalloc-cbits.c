@@ -18,5 +18,9 @@
 // Build mimalloc as a single static object containing the entire library. This
 // should override all of the standard allocation functions.
 
+#ifndef _DEFAULT_SOURCE
+#define _DEFAULT_SOURCE
+#endif
+
 #include "mimalloc-cbits.h"
 #include "mimalloc/src/static.c"
