@@ -7,11 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [next]
 
+## [1.1.0]
+
 ### Added
 - Support for using both `CUDA` and `Interpose` traits together
 
 ### Changed
-- Update to mimalloc@v3.3.1
+- Update to mimalloc@v3.3.1+CUDA
 
 ## [1.0.0] - YYYY-MM-DD
 
@@ -20,5 +22,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Initial release
 
 
-[next]: https://github.com/dataparallel-swift/swift-mimalloc/compare/1.0.0...HEAD
+[next]:  https://github.com/dataparallel-swift/swift-mimalloc/compare/1.1.0...HEAD
+[1.1.0]: https://github.com/dataparallel-swift/swift-mimalloc/compare/1.0.0...1.1.0
 [1.0.0]: https://github.com/dataparallel-swift/swift-mimalloc/releases/tag/1.0.0
