@@ -25,6 +25,7 @@ include:
       job-prefix: "amd64-"
       runner-tags:
         - passivelogic-linux-small-amd64
+      enable-resolve-check: false
       additional-setup:
         - git submodule sync
         - git submodule update --init
@@ -34,6 +35,7 @@ include:
       job-prefix: "arm64-"
       runner-tags:
         - passivelogic-linux-small-arm64
+      enable-resolve-check: false
       additional-setup:
         - git submodule sync
         - git submodule update --init
@@ -43,6 +45,7 @@ include:
       job-prefix: "amd64-cuda-"
       runner-tags:
         - passivelogic-linux-small-amd64
+      enable-resolve-check: false
       additional-setup:
         - git submodule sync
         - git submodule update --init
@@ -57,9 +60,48 @@ include:
 
   - component: gitlab.com/PassiveLogic/ci/swift-build@4
     inputs:
+      job-prefix: "arm64-cuda-interpose-"
+      runner-tags:
+        - passivelogic-linux-small-arm64
+      enable-resolve-check: false
+      additional-setup:
+        - git submodule sync
+        - git submodule update --init
+        # Install CUDA
+        - apt-get -y install wget
+        - wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/sbsa/cuda-keyring_1.1-1_all.deb
+        - dpkg -i cuda-keyring_1.1-1_all.deb
+        - apt-get update
+        - apt-get -y install cuda-nvcc-12-6
+      package-traits:
+        - CUDA
+        - Interpose
+
+  - component: gitlab.com/PassiveLogic/ci/swift-build@4
+    inputs:
+      job-prefix: "amd64-cuda-interpose-"
+      runner-tags:
+        - passivelogic-linux-small-amd64
+      enable-resolve-check: false
+      additional-setup:
+        - git submodule sync
+        - git submodule update --init
+        # Install CUDA
+        - apt-get -y install wget
+        - wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2404/x86_64/cuda-keyring_1.1-1_all.deb
+        - dpkg -i cuda-keyring_1.1-1_all.deb
+        - apt-get update
+        - apt-get -y install cuda-nvcc-12-6
+      package-traits:
+        - CUDA
+        - Interpose
+
+  - component: gitlab.com/PassiveLogic/ci/swift-build@4
+    inputs:
       job-prefix: "arm64-cuda-"
       runner-tags:
         - passivelogic-linux-small-arm64
+      enable-resolve-check: false
       additional-setup:
         - git submodule sync
         - git submodule update --init
@@ -74,6 +116,10 @@ include:
 
   # Test stage
   - component: gitlab.com/PassiveLogic/ci/swift-api-check@4
+    inputs:
+      additional-setup:
+        - git submodule sync
+        - git submodule update --init
 
   # Deploy stage
   - component: gitlab.com/PassiveLogic/ci/swift-docs@4

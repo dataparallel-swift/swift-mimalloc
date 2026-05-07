@@ -20,10 +20,6 @@ let package = Package(
         .library(name: "swift-mimalloc", targets: ["swift-mimalloc"]),
     ],
     traits: [
-        // Abusing the traits system, since these are (currently) mutually
-        // exclusive. Add a default trait because we can't make build conditions
-        // that are negations (i.e. when the CUDA trait is not enabled), or for
-        // when no traits are enabled.
         "CUDA",
         "Interpose",
         .default(enabledTraits: ["Interpose"]),
